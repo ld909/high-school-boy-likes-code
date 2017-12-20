@@ -142,9 +142,9 @@ labelsYgoDetection = [
     Label(  'unlabelled'           ,  4 ,      255 , 'void'            , 0       , False        , True         , (  0,  0,  0) ),
 ]
 
-labels = labelsYgo
+#labels = labelsYgo
 #labels = labelsYgoPaint
-#labels = labelsYgoDetection
+labels = labelsYgo
 
 #--------------------------------------------------------------------------------
 # Create dictionaries for a fast lookup
