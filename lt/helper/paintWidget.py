@@ -923,11 +923,18 @@ class paintWidget(QtGui.QWidget):
         if not highlightObjIds and (self.drawPoly.isEmpty() or self.drawPolyClosed) and self.mouseObj>=0 and not self.mouseOutsideImage:
             highlightObjIds = [self.mouseObj]
         # Get the actual object that is highlighted
+        # changed by siyu
         if highlightObjIds:
-            self.highlightObjs = [ self.annotation.objects[i] for i in highlightObjIds ]
+            try:
+                self.highlightObjs = [ self.annotation.objects[i] for i in highlightObjIds ]
+            except:
+                pass
         # Set the highlight object label if appropriate
         if len(highlightObjIds) == 1:
-            self.highlightObjLabel = self.annotation.objects[highlightObjIds[-1]].label
+            try:
+                self.highlightObjLabel = self.annotation.objects[highlightObjIds[-1]].label
+            except:
+                pass
 
     def drawImage(self, qp):
         # Return if no image available
