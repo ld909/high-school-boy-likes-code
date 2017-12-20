@@ -393,6 +393,8 @@ class toolBars(QtGui.QToolBar):
         # Backup of status message
         # restoreMessage = self.statusBar().currentMessage()
         # Create the dialog
+        proceed = True
+        """
         dlgTitle = "Save changes?"
         # self.statusBar().showMessage(dlgTitle)
         text = "Do you want to save the following changes?\n"
@@ -400,7 +402,7 @@ class toolBars(QtGui.QToolBar):
             text += "- " + c + '\n'
         buttons = QtGui.QMessageBox.Save | QtGui.QMessageBox.Discard | QtGui.QMessageBox.Cancel
         ret = QtGui.QMessageBox.question(self, dlgTitle, text, buttons, QtGui.QMessageBox.Save)
-        proceed = False
+        
         # If the user selected yes -> save
         if ret == QtGui.QMessageBox.Save:
             proceed = self.save()
@@ -413,6 +415,8 @@ class toolBars(QtGui.QToolBar):
         else:
             proceed = False
         # self.statusBar().showMessage(restoreMessage)
+        """
+        self.save()
 
         if proceed == True:
             self.state = State.view
@@ -483,6 +487,7 @@ class toolBars(QtGui.QToolBar):
                 proceed = True
                 # warn user that he is overwriting an old file
                 if os.path.isfile(filename):
+                    """
                     msgBox = QtGui.QMessageBox(self)
                     msgBox.setWindowTitle("Overwriting")
                     msgBox.setText(
@@ -500,6 +505,7 @@ class toolBars(QtGui.QToolBar):
                         # Do nothing
                         message += "Nothing saved, no harm has been done. "
                         proceed = False
+                    """
 
                 # Save JSON file
                 if proceed:
